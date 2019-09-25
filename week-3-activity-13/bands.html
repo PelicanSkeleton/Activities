@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- * Create a website that accomplishes the following:
+
+        * Create an array of your favorite bands.
+      
+        * With a prompt, ask the user's favorite band.
+      
+        * If it's one of your favorites, alert: "YEAH I LOVE THEM!"
+      
+        * If it's not, alert: "Nah. They're pretty lame."
+      
+        * **HINT:**  You will need to research how to use `.indexOf()`.
+      
+        * **HINT:** You will need to research how to use `.toLowerCase()`. -->
+    <script>
+    
+    var favoriteBands = ["radiohead", "braid", "maps & atlases", "american football", "battles", "mock orange", "menonmena", "faraquet", "pedro the lion", "engine down"]
+    var userBand = prompt("What is your favorite band?")
+    var userBandLowerCase = userBand.toLowerCase();
+
+    if (favoriteBands.indexOf(userBandLowerCase) === -1) {
+        alert("Nah. They're pretty lame.");
+    } 
+    
+    else {
+        alert("YEAH I LOVE THEM!");
+    }
+
+    
+
+    </script>
+    
+</body>
+</html>
