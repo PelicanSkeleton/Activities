@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+    
+
+    function prime (x) {
+        if(x === 1) {
+            console.log(x + "false");
+        } else if(x === 2) {
+            console.log(x + "true");
+        } else {
+            for(var num = 2; num < x; x++) {
+                if(x % num === 0){
+                    console.log("false" + x);
+                } else {
+                    console.log("true" + x);
+                }
+            }
+        }
+    }
+    
+    prime(3);
+    
+    
+    </script>
+    
+        
+</body>
+</html>
