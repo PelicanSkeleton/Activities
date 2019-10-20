@@ -15,14 +15,17 @@
     <div id="empty-div"></div>
 
     <script type="text/javascript">
-        var fizzBuzz = [];
+        
 
         
-    for (i = 0; i <= 100; i++) {
-            var int = 0;
-            fizzBuzz[i] = int;
-            int++;
-            console.log(fizzBuzz);
+    for (num = 0; num <= 100; num++) {
+        var checkForThree = num % 3;
+        var checkForFive = num % 5;
+        var result = "";    
+        
+        if ( checkForThree === 0) {
+            result = result + "fizz";
+        }
 
         }
 
