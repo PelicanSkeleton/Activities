@@ -16,13 +16,17 @@
   <script type="text/javascript">
     // Things to accomplish:
     // Get an API Key from OpenWeatherMap API
-    var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=bujumbura,burundi&api_key=0bfda7ab48c5ae310aa060dd85e37601";
+    var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=London,uk&units=imperial&APPID=e77bf67ce2d7396b429d01f822fa6144";
     // Create an AJAX call to retrieve data Log the data in console
     $.ajax({
         url: queryUrl,
         method: "GET"
     }).then(function(response) {
       console.log(response);
+      $(".city").html("<h2>" + response.name + " Weather Details:</h2>");
+      $(".wind").text("Wind Speed: " + response.wind.speed);
+      $(".humidity").text("Humidity: " + response.main.humidity);
+      $(".temp").text("Temperature (F): " + response.main.temp);
     });
     // Log the data in HTML
     // Scream Ushindi (victory in Swahili)! at the top of your lungs

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Firebase Number One</title>
+</head>
+<body>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-database.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+        <script>
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+            apiKey: "AIzaSyCl5NZalrT4f2ZybrquV0gd2jVsE3pRYFs",
+            authDomain: "the-best-project-ever-ps.firebaseapp.com",
+            databaseURL: "https://the-best-project-ever-ps.firebaseio.com",
+            projectId: "the-best-project-ever-ps",
+            storageBucket: "the-best-project-ever-ps.appspot.com",
+            messagingSenderId: "517345273937",
+            appId: "1:517345273937:web:5f9538a1e6a7f2ccb13070"
+          };
+
+
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+
+          var database = firebase.database();
+
+          database.ref("/").set({message: "Firebase rules!"});
+        </script>
+</body>
+</html>

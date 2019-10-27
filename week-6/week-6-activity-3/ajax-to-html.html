@@ -33,9 +33,9 @@
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
-    // The below code fills in the first row of the table
-    var movie = "Mr. Nobody";
-    var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+    
+    function addMovie(movieTitle) {
+    var queryURL = "https://www.omdbapi.com/?t=" + movieTitle + "&apikey=b83e997c";
 
     $.ajax({
       url: queryURL,
@@ -43,14 +43,22 @@
     }).then(function(response) {
 
       // Create and save a reference to new empty table row
+      var tableRow = $("<tr>");
       // Create and save references to 3 td elements containing the Title, Year, and Actors from the AJAX response object
+      var titleTd = $("<td>").text(response.Title);
+      var yearTd = $("<td>").text(response.Year);
+      var actorsTd = $("<td>").text(response.Actors);
       // Append the td elements to the new table row
+      tableRow.append(titleTd, yearTd, actorsTd);
       // Append the table row to the tbody element
+      $("tbody").append(tableRow);
     });
-
+  }
     // Repeat the above logic to add rows for two more movies of your choice
 
-    // BONUS: Once complete, try to make your code as DRY as possible through the use of functions
+    addMovie("True Grit");
+    addMovie("There Will Be Blood");
+    addMovie("Back To The Future");    
   </script>
 </body>
 

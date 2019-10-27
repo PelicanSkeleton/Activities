@@ -2,7 +2,7 @@
 // Use the following Audio file below:
 
 var audio = document.createElement("audio");
-audio.setAttribute("src", "./raven.mp3");
+audio.setAttribute("src", "raven.mp3");
 
 //  Step 2: do the following between the --- comments below
 //  after 5 seconds, execute the fiveSeconds function

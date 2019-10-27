@@ -36,10 +36,11 @@
 
       // Function for displaying movie data
       function renderButtons() {
-        var button = $("button");
+        
         $("#buttons-view").empty();
         for(i = 0; i < movies.length; i++) {
-            button.text(movies[i]);
+            var button = $("<button>");
+            
             button.addClass("movie");
             button.attr("data-name", movies[i]);
             button.text(movies[i]);
@@ -50,8 +51,10 @@
 
       // This function handles events where one button is clicked
       $("#add-movie").on("click", function() {
-
-        // YOUR CODE GOES HERE
+        event.preventDefault();
+        var movie = $("#movie-input").val().trim();
+        movies.push(movie);
+        renderButtons();
 
       });
 
