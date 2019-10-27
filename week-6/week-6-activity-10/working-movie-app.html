@@ -19,7 +19,7 @@
   <div class="container">
     <h1>Movie Search</h1>
 
-    <!-- Buttons will Get Dumped Here -->
+    <!-- Rendered buttons will get dumped Here  -->
     <div id="buttons-view"></div>
 
     <form id="movie-form">
@@ -30,55 +30,64 @@
       <input id="add-movie" type="submit" value="Add a Movie, Yo!">
     </form>
 
+    <!-- Movies will get dumped here -->
+    <div id="movies-view"></div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
       // Initial array of movies
       var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
 
-      // Function for dumping the JSON content for each button into the div
+      // displayMovieInfo function re-renders the HTML to display the appropriate content
       function displayMovieInfo() {
 
-        // YOUR CODE GOES HERE!!! HINT: You will need to create a new div to hold the JSON.
         var movie = $(this).attr("data-name");
-        var queryURL = "http://www.omdbapi.com/?i=" + movie + "tt3896198&apikey=b83e997c";
+        var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
 
+        // Creates AJAX call for the specific movie button being clicked
         $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function(response){
-            $("#movies-view").text(JSON.stringify(response));
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          $("#movies-view").empty();
+         $("#movies-view").append($("<p>").text("Rating: " + response.Rated));
+         $("#movies-view").append($("<p>").text("Released: " + response.Released));
+         $("#movies-view").append($("<p>").text("Plot: " + response.Plot));
+         $("#movies-view").append($("<img>").attr("src", response.Poster));
+         
+
         });
+
       }
 
       // Function for displaying movie data
       function renderButtons() {
 
-        // Deleting the buttons prior to adding new movies
+        // Deletes the movies prior to adding new movies
         // (this is necessary otherwise you will have repeat buttons)
         $("#buttons-view").empty();
 
-        // Looping through the array of movies
+        // Loops through the array of movies
         for (var i = 0; i < movies.length; i++) {
 
-          // Then dynamicaly generating buttons for each movie in the array
+          // Then dynamicaly generates buttons for each movie in the array
           // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
           var a = $("<button>");
-          // Adding a class of movie to our button
+          // Adds a class of movie to our button
           a.addClass("movie");
-          // Adding a data-attribute
+          // Added a data-attribute
           a.attr("data-name", movies[i]);
-          // Providing the initial button text
+          // Provided the initial button text
           a.text(movies[i]);
-          // Adding the button to the buttons-view div
+          // Added the button to the buttons-view div
           $("#buttons-view").append(a);
         }
       }
 
-      // This function handles events where one button is clicked
+      // This function handles events where the add movie button is clicked
       $("#add-movie").on("click", function(event) {
         event.preventDefault();
-
-        // This line grabs the input from the textbox
+        // This line of code will grab the input from the textbox
         var movie = $("#movie-input").val().trim();
 
         // The movie from the textbox is then added to our array
@@ -89,7 +98,7 @@
 
       });
 
-      // Generic function for displaying the movieInfo
+      // Adding click event listeners to all elements with a class of "movie"
       $(document).on("click", ".movie", displayMovieInfo);
 
       // Calling the renderButtons function to display the intial buttons
