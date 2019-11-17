@@ -1,0 +1,16 @@
+{
+  "name": "week-10-activity-27",
+  "version": "1.0.0",
+  "description": "",
+  "main": "inquirerGeocode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^7.0.0",
+    "node-geocoder": "^3.25.0"
+  }
+}
