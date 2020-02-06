@@ -1,5 +1,5 @@
 class Character {
-    constructor(name, profession, gender, age, strength, hitPoints){
+    constructor(name, profession, gender, age, strength, hitPoints) {
         this.name = name;
         this.profession = profession;
         this.gender = gender;
@@ -9,25 +9,31 @@ class Character {
 
     }
 
-     stats(){
+    stats() {
         console.log(this.name, this.profession, this.gender, this.age, this.strength, this.hitPoints);
     }
 
-    isAlive(){
-        if(hitPoints <= 0){
-            return false;
-        } else {
-            return this.strength;
-        };
+    isAlive() {
+        return this.strength >= 0 ? true : false;
     }
 
-    attack(){
+    attack(otherCharacter) {
+        otherCharacter.strength -= this.hitPoints;
+    }
 
+    levelUp(){
+        this.age++;
+        this.strength += 5;
+        this.hitPoints += 25;
     }
 };
 
-var Scott = new Character("Scott", "Developer", "male", 39, 10, 0);
-var Dan = new Character("Dan", "Teacher", "male", 45, 10, 0);
+var Scott = new Character("Scott", "Developer", "male", 39, 100, 10);
+var Dan = new Character("Dan", "Teacher", "male", 45, 100, 10);
 
 Scott.stats();
+Dan.stats();
+
+Scott.attack(Dan);
+
 Dan.stats();
